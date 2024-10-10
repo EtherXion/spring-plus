@@ -22,4 +22,13 @@ public class AuthUser {
         this.authorities = List.of(new SimpleGrantedAuthority(userRole.name()));
         this.nickname = nickname;
     }
+
+    public UserRole getUserRole() {
+        return authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .map(UserRole::valueOf)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("권한 찾을 수 없음"));
+    }
+
 }
