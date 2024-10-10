@@ -4,7 +4,7 @@ import org.example.expert.domain.todo.entity.Todo;
 
 import java.util.Optional;
 
-public interface TodoRepositoryQuery {
+public interface TodoQueryRepository {
 
     Optional<Todo> findByIdWithUser(Long todoId);
 
